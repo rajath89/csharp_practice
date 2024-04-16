@@ -4,6 +4,56 @@ using BenchmarkDotNet.Running;
 
 
 
+Console.WriteLine("Hello, World!");
+
+    Lazy<List<int>> lazyNumbers = new Lazy<List<int>>(() =>
+    {
+      Console.WriteLine("Initializing list of numbers…");
+      return new List<int> { 1, 2, 3, 4, 5 };
+    });
+	Console.WriteLine($"is lazyNumbers value created : {lazyNumbers.IsValueCreated}");
+    // Accessing the value
+    List<int> numbers = lazyNumbers.Value;
+	Console.WriteLine($"is lazyNumbers value created : {lazyNumbers.IsValueCreated}");
+    Console.WriteLine("List of numbers initialized.");
+
+    // Accessing the value again (without re-initialization)
+    List<int> numbersAgain = lazyNumbers.Value;
+    Console.WriteLine("List of numbers retrieved again.");
+
+
+Console.WriteLine(BitManipulation.GetIntBinaryString(-12));
+Boolean b1 = true, b2 = false;
+if ((b1=false) | (b1^b2))
+{
+    Console.WriteLine("success");
+}
+
+//WeakRef.MainMethod();
+
+// var yieldTest = new YieldTest();
+// foreach(var item in yieldTest.GetNumbers())
+// {
+// 	System.Console.WriteLine(item);
+// }
+
+
+// foreach (int evenNumber in yieldTest.GenerateEvenNumbers())
+// {
+//     if (evenNumber > 50)
+//     {
+//         break;
+//     }
+//     Console.WriteLine(evenNumber);
+// }
+
+
+
+
+
+
+///
+/// 
 //var summary = BenchmarkRunner.Run<StringTest>();
 
 
@@ -24,10 +74,10 @@ using BenchmarkDotNet.Running;
 
 
 
- Console.WriteLine("Hello, World!");
 
- var pluginLoader = new PluginLoader();
- pluginLoader.Load();
+
+//  var pluginLoader = new PluginLoader();
+//  pluginLoader.Load();
 
 // var txtEditor = new TextEditor();
 		
